@@ -49,9 +49,9 @@ class TestApp:
 
             response = client.get('/articles/3')
             assert(response.status_code == 200)
-
-            response = client.get('/articles/4')
-            assert(response.status_code == 401)
+            
+            new_response = client.get('/articles/4')
+            assert(new_response.status_code == 401)
             assert(response.get_json().get('message') == 
                 'Maximum pageview limit reached')
 

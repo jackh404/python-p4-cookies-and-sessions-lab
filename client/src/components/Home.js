@@ -7,13 +7,13 @@ function Home() {
 
   useEffect(() => {
     fetch("/articles")
-      .then((r) => r.json())
-      .then(setArticles);
+      .then(r => r.json())
+      .then(articles => setArticles(articles));
   }, []);
 
   return (
     <main>
-      {articles.map((article) => {
+      {articles.map(article => {
         const emojis = makeEmojiList(article.minutes_to_read);
         return (
           <article key={article.id}>
